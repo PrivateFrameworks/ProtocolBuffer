@@ -1,0 +1,9 @@
+--- !tapi-tbd
+tbd-version:     4
+targets:         [ arm64-tvos ]
+install-name:    '/System/Library/PrivateFrameworks/ProtocolBuffer.framework/ProtocolBuffer'
+exports:
+  - targets:         [ arm64-tvos ]
+    symbols:         [ ]
+    objc-classes:    [ PBCodable, PBMutableData, PBDataWriter, PBDataReader ]
+...
