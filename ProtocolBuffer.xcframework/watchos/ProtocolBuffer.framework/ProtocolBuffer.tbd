@@ -1,9 +1,13 @@
---- !tapi-tbd
-tbd-version:     4
-targets:         [ armv7k-watchos, arm64_32-watchos ]
-install-name:    '/System/Library/PrivateFrameworks/ProtocolBuffer.framework/ProtocolBuffer'
+---
+archs:            [ x86_64, arm64, i386, armv7, armv7s ]
+platform:         watchos
+install-name:     '/System/Library/PrivateFrameworks/ProtocolBuffer.framework/ProtocolBuffer'
 exports:
-  - targets:         [ armv7k-watchos, arm64_32-watchos ]
-    symbols:         [ ]
-    objc-classes:    [ PBCodable, PBMutableData, PBDataWriter, PBDataReader ]
+  - archs:        [ x86_64, arm64, i386, armv7, armv7s ]
+    symbols:      [ ]
+    objc-classes:
+      - _PBCodable
+      - _PBMutableData
+      - _PBDataWriter
+      - _PBDataReader
 ...

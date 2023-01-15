@@ -2,7 +2,7 @@
 #define TestMethods_h
 
 // -[PBCodable writeTo:]
-void Identifier(testMethod_PBCodable_writeTo_)() {
+void Identifier(testMethod_PBCodable_writeTo_)(XCTestCase * _Nonnull self) {
     Identifier(PBCodableSubclass) *codable = [(Identifier(PBCodableSubclass) *)[Identifier(GetPBCodableSubclass)() alloc] initWithData:nil];
 	PBMutableData *data = codable.data;
 	
@@ -16,7 +16,7 @@ void Identifier(testMethod_PBCodable_writeTo_)() {
 }
 
 #define TestMethods \
-Identifier(testMethod_PBCodable_writeTo_)(); \
+Identifier(testMethod_PBCodable_writeTo_)(self); \
 
 
 #endif /* TestMethods_h */

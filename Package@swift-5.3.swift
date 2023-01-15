@@ -1,6 +1,6 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.3
 
-// PackageDescription 5.5 adds `macCatalyst`
+// Swift 5.3 adds support for `binaryTarget`
 
 import PackageDescription
 
@@ -9,7 +9,6 @@ let package = Package(
 	platforms: [
 		.iOS(.v8),
 		.macOS(.v10_10),
-		.macCatalyst(.v13),
 		.tvOS(.v9),
 		.watchOS(.v2),
 	],
@@ -33,22 +32,6 @@ let package = Package(
 		.binaryTarget(
 			name: "ProtocolBuffer",
 			path: "ProtocolBuffer.xcframework"
-		),
-		.testTarget(
-			name: "TestsWithLinking",
-			dependencies: ["PrivateProtocolBuffer", "ProtocolBuffer"],
-			path: "Tests/Linked",
-			cSettings: [
-				.define("LINKED_TESTS"),
-			]
-		),
-		.testTarget(
-			name: "TestsWithoutLinking",
-			dependencies: ["PrivateProtocolBuffer"],
-			path: "Tests/Unlinked",
-			cSettings: [
-				.define("UNLINKED_TESTS"),
-			]
 		),
 	]
 )

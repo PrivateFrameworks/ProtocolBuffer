@@ -1,0 +1,136 @@
+name: PrivateProtocolBuffer
+targetTemplates:
+  ios:
+    platform: iOS
+    deploymentTarget: "8.0"
+  tvos:
+    platform: tvOS
+    deploymentTarget: "9.0"
+  watchos:
+    platform: watchOS
+    deploymentTarget: "2.0"
+  macos:
+    platform: macOS
+    deploymentTarget: "10.10"
+  framework:
+    type: framework
+    dependencies:
+      - framework: ProtocolBuffer.xcframework/${platform}/ProtocolBuffer.framework
+    sources:
+      - Sources
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: private.protocolbuffer-${platform}
+      GENERATE_INFOPLIST_FILE: true
+      PRODUCT_MODULE_NAME: PrivateProtocolBuffer
+      PRODUCT_NAME: PrivateProtocolBuffer
+    testTargets:
+      - Linked tests ${platform}
+      - Unlinked tests ${platform}
+  tests:
+    type: bundle.unit-test
+    dependencies:
+      - target: PrivateProtocolBuffer ${platform}
+        embed: false
+    sources:
+      - path: Tests
+        excludes:
+          - Linked
+          - Unlinked
+    settings:
+      GENERATE_INFOPLIST_FILE: true
+  linked tests:
+    sources:
+      - Tests/Linked
+    dependencies:
+      - framework: ProtocolBuffer.xcframework/${platform}/ProtocolBuffer.framework
+        embed: false
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: private.protocolbuffer-${platform}.linked-tests
+      GCC_PREPROCESSOR_DEFINITIONS: LINKED_TESTS
+  unlinked tests:
+    sources:
+      - Tests/Unlinked
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: private.protocolbuffer-${platform}.unlinked-tests
+      GCC_PREPROCESSOR_DEFINITIONS: UNLINKED_TESTS
+targets:
+  PrivateProtocolBuffer ios:
+    templates:
+      - ios
+      - framework
+    templateAttributes:
+      platform: ios
+  Linked tests ios:
+    templates:
+      - ios
+      - tests
+      - linked tests
+    templateAttributes:
+      platform: ios
+  Unlinked tests ios:
+    templates:
+      - ios
+      - tests
+      - unlinked tests
+    templateAttributes:
+      platform: ios
+  PrivateProtocolBuffer tvos:
+    templates:
+      - tvos
+      - framework
+    templateAttributes:
+      platform: tvos
+  Linked tests tvos:
+    templates:
+      - tvos
+      - tests
+      - linked tests
+    templateAttributes:
+      platform: tvos
+  Unlinked tests tvos:
+    templates:
+      - tvos
+      - tests
+      - unlinked tests
+    templateAttributes:
+      platform: tvos
+  PrivateProtocolBuffer watchos:
+    templates:
+      - watchos
+      - framework
+    templateAttributes:
+      platform: watchos
+  Linked tests watchos:
+    templates:
+      - watchos
+      - tests
+      - linked tests
+    templateAttributes:
+      platform: watchos
+  Unlinked tests watchos:
+    templates:
+      - watchos
+      - tests
+      - unlinked tests
+    templateAttributes:
+      platform: watchos
+  PrivateProtocolBuffer macos:
+    templates:
+      - macos
+      - framework
+    templateAttributes:
+      platform: macos
+  Linked tests macos:
+    templates:
+      - macos
+      - tests
+      - linked tests
+    templateAttributes:
+      platform: macos
+  Unlinked tests macos:
+    templates:
+      - macos
+      - tests
+      - unlinked tests
+    templateAttributes:
+      platform: macos

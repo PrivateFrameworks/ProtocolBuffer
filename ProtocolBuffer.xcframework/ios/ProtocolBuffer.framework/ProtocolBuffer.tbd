@@ -1,9 +1,13 @@
---- !tapi-tbd
-tbd-version:     4
-targets:         [ x86_64-macos, arm64-macos, armv7-ios ]
-install-name:    '/System/Library/PrivateFrameworks/ProtocolBuffer.framework/ProtocolBuffer'
+---
+archs:            [ x86_64, arm64 ]
+platform:         ios
+install-name:     '/System/Library/PrivateFrameworks/ProtocolBuffer.framework/ProtocolBuffer'
 exports:
-  - targets:         [ x86_64-macos, arm64-macos, armv7-ios ]
-    symbols:         [ ]
-    objc-classes:    [ PBCodable, PBMutableData, PBDataWriter, PBDataReader ]
+  - archs:        [ x86_64, arm64 ]
+    symbols:      [ ]
+    objc-classes:
+      - _PBCodable
+      - _PBMutableData
+      - _PBDataWriter
+      - _PBDataReader
 ...
