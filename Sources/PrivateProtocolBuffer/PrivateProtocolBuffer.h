@@ -3,10 +3,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import "PBMutableData.h"
-#import "PBDataReader.h"
-#import "PBDataWriter.h"
-#import "PBCodable.h"
+#import <PrivateProtocolBuffer/PBMutableData.h>
+#import <PrivateProtocolBuffer/PBDataReader.h>
+#import <PrivateProtocolBuffer/PBDataWriter.h>
+#import <PrivateProtocolBuffer/PBCodable.h>
 
 FOUNDATION_EXPORT double PrivateProtocolBufferVersionNumber;
 

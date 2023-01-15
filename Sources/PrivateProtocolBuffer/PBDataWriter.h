@@ -1,7 +1,7 @@
 #ifndef PrivateProtocolBuffer_PBDataWriter_h
 #define PrivateProtocolBuffer_PBDataWriter_h
 
-#import "PBMutableData.h"
+#import <PrivateProtocolBuffer/PBMutableData.h>
 
 /// Available since iOS 5
 @interface PBDataWriter : NSObject {

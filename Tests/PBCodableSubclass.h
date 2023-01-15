@@ -17,6 +17,7 @@ void Identifier(PBCodableSubclassWriteTo)(id self, SEL _cmd, PBDataWriter *dataW
 	[dataWriter writeInt8:0x6F]; // o
 }
 
+Class Identifier(GetPBCodableSubclass)(void);
 Class Identifier(GetPBCodableSubclass)() {
 	static Class codableSubclass;
 	static dispatch_once_t onceToken;

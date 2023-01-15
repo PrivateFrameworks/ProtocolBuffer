@@ -3,9 +3,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "PBMutableData.h"
-#import "PBDataReader.h"
-#import "PBDataWriter.h"
+#import <PrivateProtocolBuffer/PBMutableData.h>
+#import <PrivateProtocolBuffer/PBDataReader.h>
+#import <PrivateProtocolBuffer/PBDataWriter.h>
 
 /// Available since iOS 5
 @interface PBCodable : NSObject <NSSecureCoding>

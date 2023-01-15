@@ -1,7 +1,7 @@
 #ifndef PrivateProtocolBuffer_PBDataReader_h
 #define PrivateProtocolBuffer_PBDataReader_h
 
-#import "PBMutableData.h"
+#import <PrivateProtocolBuffer/PBMutableData.h>
 
 /// Available since iOS 5
 @interface PBDataReader : NSObject
